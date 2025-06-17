@@ -1,29 +1,105 @@
-# Project: Hệ thống điểm danh bằng nhận diện khuôn mặt
+<div align="center">
+  <h1>Face Recognition Attendance System</h1>
+  <h3>Project for CPV301 - Computer Vision</h3>
+  <p><strong>FPT University HCMC - Group 6</strong></p>
+</div>
 
-Dự án môn học Computer Vision - FPT University.
+![Language](https://img.shields.io/badge/Language-Python-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## Thành viên nhóm
-- Nguyễn Văn A - Leader
-- Trần Thị B - Thành viên
-- ... (liệt kê đủ 7 người và vai trò)
+---
 
-## Mô tả
-Chương trình sử dụng webcam của laptop để nhận dạng và ghi lại thời gian điểm danh của sinh viên.
+## 📝 Overview
 
-## Hướng dẫn cài đặt
-1. Clone repository.
-2. Tạo môi trường ảo và kích hoạt:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Trên Windows: venv\Scripts\activate
-   ```
-3. Cài đặt các thư viện cần thiết:
-   ```bash
-   pip install -r requirements.txt
-   ```
+This repository is for **Group 6** in the **CPV301 (Computer Vision)** course at FPT University HCMC. It contains the source code and related materials for our final project. The project's goal is to build a simple attendance system that uses a computer's webcam to detect and recognize student faces, logging their check-in times automatically.
 
-## Hướng dẫn sử dụng
-Chạy file main.py để bắt đầu chương trình:
-```bash
-python main.py
+## ✨ Key Features
+
+- ✅ **Real-time Video Streaming:** Captures live video feed from the laptop's webcam.
+- ✅ **Face Detection:** Identifies and locates human faces within each video frame.
+- ✅ **Face Recognition:** Compares a detected face against a pre-registered student database to determine identity.
+- ✅ **Attendance Logging:** Records the Student ID, Full Name, and timestamp of a successful recognition into a `CSV` file.
+
+## 🛠️ Tech Stack
+
+*   **Language:** Python 3
+*   **Computer Vision & Image Processing:** OpenCV, Dlib, `face_recognition`
+*   **Numerical Computing:** NumPy
+*   **Data Handling:** Pandas
+
+## 🚀 Installation and Usage
+
+Follow these steps to get the project running on your local machine.
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone <YOUR-REPOSITORY-URL>
+    cd <PROJECT-DIRECTORY-NAME>
+    ```
+
+2.  **Create and Activate a Virtual Environment (Recommended):**
+    ```bash
+    # Create the environment
+    python -m venv venv
+
+    # Activate on Windows
+    .\venv\Scripts\activate
+
+    # Activate on macOS/Linux
+    source venv/bin/activate
+    ```
+
+3.  **Install Required Libraries:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Prepare the Dataset:**
+    *   Add images of each student to the `data/dataset/` directory.
+    *   Each student must have their own sub-directory named in the format `StudentID_FullNameWithoutSpaces` (e.g., `data/dataset/SE123456_NguyenVanA`).
+    *   Place several clear portrait photos of the student inside their respective folder.
+
+5.  **Run the Application:**
+    ```bash
+    python main.py
+    ```
+    The program will automatically build the face encodings file (`models/encodings.pkl`) on its first run if it doesn't exist.
+
+## 📂 Project Structure
+
 ```
+.
+├── data/
+│   ├── dataset/        # Contains registered student images
+│   └── logs/           # Contains attendance log files
+├── docs/               # Contains reports and presentation slides
+├── models/             # Stores trained models (e.g., encodings.pkl)
+├── notebooks/          # Jupyter notebooks for experimentation
+├── src/                # All source code
+│   ├── config.py
+│   ├── streaming.py
+│   ├── image_processor.py
+│   ├── face_detector.py
+│   ├── face_recognizer.py
+│   ├── attendance_manager.py
+│   └── utils.py
+├── .gitignore
+├── main.py             # Main script to run the application
+├── requirements.txt
+└── README.md
+```
+
+## 👥 Team Members & Roles
+
+| Name                  | Role                         | Team         |
+| --------------------- | ---------------------------- | ------------ |
+| **Lê Nguyễn Gia Hưng** | **Overall Leader**           | -            |
+| **Hoàng Phạm Gia Bảo** | **Coding Team Lead**         | Coding       |
+| Ngô Hoài Nam          | Member                       | Coding       |
+| Huỳnh Quốc Việt       | Member                       | Coding       |
+| Võ Tấn Phát           | Member                       | Coding       |
+| **Trương Phước Sang** | **Presentation Team Lead**   | Presentation |
+| Dương Nguyên Bình     | Member                       | Presentation |
+
+## 📄 License
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
