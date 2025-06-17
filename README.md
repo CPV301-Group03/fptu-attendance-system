@@ -71,7 +71,7 @@ Follow these steps to get the project running on your local machine.
 ## 📂 Project Structure
 
 ```
-.
+fptu-attendance-system
 ├── data/
 │   ├── dataset/        # Contains registered student images
 │   └── logs/           # Contains attendance log files
