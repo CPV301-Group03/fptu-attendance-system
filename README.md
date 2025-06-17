@@ -36,8 +36,8 @@ Follow these steps to get the project running on your local machine.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <YOUR-REPOSITORY-URL>
-    cd <PROJECT-DIRECTORY-NAME>
+    git clone https://github.com/CPV301-Group03/fptu-attendance-system.git
+    cd fptu-attendance-system
     ```
 
 2.  **Create and Activate a Virtual Environment (Recommended):**
