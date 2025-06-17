@@ -14,7 +14,7 @@
 
 ## 📝 Overview
 
-This repository is for **Group 6** in the **CPV301 (Computer Vision)** course at FPT University HCMC. It contains the source code and related materials for our final project. The project's goal is to build a simple attendance system that uses a computer's webcam to detect and recognize student faces, logging their check-in times automatically.
+This repository is for **Group 3** in the **CPV301 (Computer Vision)** course at FPT University HCMC. It contains the source code and related materials for our final project. The project's goal is to build a simple attendance system that uses a computer's webcam to detect and recognize student faces, logging their check-in times automatically.
 
 ## ✨ Key Features
 
