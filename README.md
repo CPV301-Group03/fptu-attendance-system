@@ -1,11 +1,14 @@
 <div align="center">
   <h1>Face Recognition Attendance System</h1>
   <h3>Project for CPV301 - Computer Vision</h3>
-  <p><strong>FPT University HCMC - Group 6</strong></p>
+  <p><strong>FPT University HCMC - Group 3</strong></p>
 </div>
 
-![Language](https://img.shields.io/badge/Language-Python-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-Python-blue.svg" alt="Language">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+</p>
+
 
 ---
 
