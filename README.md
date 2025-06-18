@@ -94,15 +94,14 @@ fptu-attendance-system
 
 ## 👥 Team Members & Roles
 
-| Name                  | Role                         | Team         |
-| --------------------- | ---------------------------- | ------------ |
-| **Lê Nguyễn Gia Hưng** | **Overall Leader**           | -            |
-| **Hoàng Phạm Gia Bảo** | **Coding Team Lead**         | Coding       |
-| Ngô Hoài Nam          | Member                       | Coding       |
-| Huỳnh Quốc Việt       | Member                       | Coding       |
-| Võ Tấn Phát           | Member                       | Coding       |
-| **Trương Phước Sang** | **Presentation Team Lead**   | Presentation |
-| Dương Nguyên Bình     | Member                       | Presentation |
+| Name                   | Role                         | Team                  |
+| ---------------------- | ---------------------------- | ----------------------|
+| **Lê Nguyễn Gia Hưng** | **Overall Leader**           | -                     |
+| **Hoàng Phạm Gia Bảo** | **Coding Team Lead**         | Coding                |
+| Huỳnh Quốc Việt        | Member                       | Coding                |
+| Võ Tấn Phát            | Member                       | Coding                |
+| **Trương Phước Sang**  | **Presentation Team Lead**   | Presentation & Coding |
+| Dương Nguyên Bình      | Member                       | Presentation          |
 
 ## 📄 License
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
