@@ -194,4 +194,9 @@ cython_debug/
 .cursorindexingignore
 
 src/.idea
-dlibenv
+
+# dlibenv is a virtual environment for the dlib library.
+dlibenv/
+
+# Data files
+data/
