@@ -1,0 +1,1 @@
+print("đừng ăn tài liệu của tôi")
