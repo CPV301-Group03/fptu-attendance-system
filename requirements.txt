@@ -1,6 +1,6 @@
 # Các thư viện cần thiết cho dự án
 opencv-python
 numpy
-dlib
 face_recognition
 pandas
+Pillow
