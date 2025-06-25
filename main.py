@@ -7,7 +7,6 @@ import os
 import sys
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
-
 from src.function_1 import initialize_camera, release_camera, get_camera_frame
 from src.function_2 import capture_images_from_camera
 from src.function_3 import extract_and_save_faces
@@ -166,16 +165,20 @@ class AttendanceApp:
 
     def run_recognition_thread(self):
         self.log("[INFO] Training model...")
+
         def task():
-            recognizer, label_map = train_face_recognizer("data/preprocessed_images", log_func=self.log)
+            pre_dir = "data/preprocessed_gray_images" if self.enable_preprocessing_var.get() else "data/preprocessed_images"
+            recognizer, label_map = train_face_recognizer(pre_dir, log_func=self.log)
             if recognizer is None:
                 self.log("[WARN] Training failed due to insufficient data.")
                 return
             self.recognizer = recognizer
             self.label_map = label_map
             self.is_recognition_active = True
-            self.log("[✓] Training completed. Ready for recognition.")
+            self.log(f"[✓] Training completed from: {pre_dir}. Ready for recognition.")
+
         threading.Thread(target=task).start()
+
 
     def on_closing(self):
         release_camera()

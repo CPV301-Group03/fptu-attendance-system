@@ -98,7 +98,7 @@ def recognize_faces_in_frame(frame, recognizer, label_map, log_func, th, enable_
         if name != "Unknown" and name in detection_timers:
             time_elapsed = current_time - detection_timers[name]
             countdown = max(0, 2 - time_elapsed)
-            countdown_text = f"Countdown: {countdown:.1f}s"
+            countdown_text = f"Time: {countdown:.1f}s"
             cv2.putText(frame, countdown_text, (x, y + h + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
     return frame

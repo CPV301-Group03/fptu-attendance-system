@@ -4,7 +4,8 @@ import os
 import shutil
 from preprocessing import preprocess_face_image
 
-def extract_and_save_faces(raw_dir="data/raw_images", pre_dir="data/preprocessed_images", enable_optional=False, log_func=None):
+def extract_and_save_faces(raw_dir="data/raw_images", enable_optional=False, log_func=None):
+    pre_dir = "data/preprocessed_gray_images" if enable_optional else "data/preprocessed_images"
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
     type_to_folder = {
@@ -39,9 +40,10 @@ def extract_and_save_faces(raw_dir="data/raw_images", pre_dir="data/preprocessed
                 for i, (x, y, w, h) in enumerate(faces):
                     face_crop = img[y:y+h, x:x+w]
 
-                    if enable_optional:
-                        if log_func:
+                    if log_func:
                             log_func("[INFO] Preprocessing Images...")
+                            
+                    if enable_optional:
                         face_crop = preprocess_face_image(face_crop)
 
                     filename = f"{person_folder}({img_type})_{idx}_{i}.jpg"
