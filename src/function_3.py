@@ -2,8 +2,9 @@
 import cv2
 import os
 import shutil
+from preprocessing import preprocess_face_image
 
-def extract_and_save_faces(raw_dir="data/raw_images", pre_dir="data/preprocessed_image"):
+def extract_and_save_faces(raw_dir="data/raw_images", pre_dir="data/preprocessed_images", enable_optional=False, log_func=None):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
     type_to_folder = {
@@ -37,8 +38,17 @@ def extract_and_save_faces(raw_dir="data/raw_images", pre_dir="data/preprocessed
 
                 for i, (x, y, w, h) in enumerate(faces):
                     face_crop = img[y:y+h, x:x+w]
+
+                    if enable_optional:
+                        if log_func:
+                            log_func("[INFO] Preprocessing Images...")
+                        face_crop = preprocess_face_image(face_crop)
+
                     filename = f"{person_folder}({img_type})_{idx}_{i}.jpg"
                     cv2.imwrite(os.path.join(save_path, filename), face_crop)
 
-        # Sau khi xử lý xong → xóa folder
         shutil.rmtree(input_type_path)
+
+    if log_func:
+        log_func("[✓] Preprocessing completed.")
+
