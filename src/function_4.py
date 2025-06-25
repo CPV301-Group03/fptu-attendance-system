@@ -4,27 +4,8 @@ import os
 import numpy as np
 import time
 from datetime import datetime
+from utils import log_attendance_once_per_day
 
-# Log vào file csv
-def log_attendance_once_per_day(name, log_func):
-    today = datetime.now().strftime("%Y-%m-%d")
-    log_dir = "logs"
-    os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, f"attendance_{today}.csv")
-
-    # Nếu file đã tồn tại → đọc để kiểm tra đã ghi tên chưa
-    already_logged = False
-    if os.path.exists(log_file):
-        with open(log_file, "r") as f:
-            logged_names = [line.strip().split(",")[0] for line in f.readlines()]
-            already_logged = name in logged_names
-
-    # Nếu chưa có trong log hôm nay thì ghi
-    if not already_logged:
-        now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(log_file, "a") as f:
-            f.write(f"{name},{now_str}\n")
-        log_func(f"[✓] {name} đã điểm danh lúc {now_str}")
 
 # Huấn luyện từ cả 3 thư mục ảnh
 def train_face_recognizer(data_dir="data/preprocessed_image"):
