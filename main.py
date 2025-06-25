@@ -11,6 +11,7 @@ from src.function_1 import initialize_camera, release_camera, get_camera_frame
 from src.function_2 import capture_images_from_camera
 from src.function_3 import extract_and_save_faces
 from src.function_4 import train_face_recognizer, recognize_faces_in_frame
+from src.utils import is_valid_folder_name
 
 class AttendanceApp:
     def __init__(self, root):
@@ -36,7 +37,7 @@ class AttendanceApp:
         frame_entry = tk.Frame(self.left_frame, bg="#f0f0f0")
         frame_entry.pack(pady=10)
 
-        tk.Label(frame_entry, text="Folder (MSSV_FullName_Class):", font=("Arial", 14), bg="#f0f0f0").pack(side=tk.LEFT)
+        tk.Label(frame_entry, text="Folder (SE150000_NguyenVanA_AI0000):", font=("Arial", 14), bg="#f0f0f0").pack(side=tk.LEFT)
         self.entry_name = tk.Entry(frame_entry, font=("Arial", 14), width=35)
         self.entry_name.pack(side=tk.LEFT, padx=10)
 
@@ -63,7 +64,7 @@ class AttendanceApp:
         self.camera_label = tk.Label(self.left_frame, bg="black")
         self.camera_label.pack(pady=10)
 
-        # Right Frame for Log
+        # Right Frame for Log Output
         self.right_frame = tk.Frame(self.root, bg="#e0e0e0", width=300)
         self.right_frame.pack(side=tk.RIGHT, fill=tk.Y)
 
@@ -96,9 +97,15 @@ class AttendanceApp:
     def run_capture(self):
         folder = self.entry_name.get()
         img_type = self.image_type_var.get()
+
         if not folder:
             self.log("[WARN] Please enter folder name.")
             return
+
+        if not is_valid_folder_name(folder):
+            self.log("[WARN] Folder name format invalid. Must be MSSV_FullName_Class (e.g., SE200001_NguyenVanA_SE2101)")
+            return
+
         self.log(f"[INFO] Capturing images for {folder} ({img_type})")
         threading.Thread(target=self.capture_thread, args=(folder, img_type)).start()
 
